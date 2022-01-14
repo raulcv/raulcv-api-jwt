@@ -15,8 +15,12 @@ This project uses the following technologies:
 * Morgan
 * nodemon - only for development
 
-For running execute the following command: 
-* npm install
-* npm run dev
+For running execute the following command:
+- It needs to be installed git, nodejs.
+* open the terminal and create a new folder "example: mkdir myproject" to download it.
+* Go to myproject folder with terminal typing, cd myproject
+* type in the terminal, git clone https://github.com/raulcv/raulcv-api-jwt.git
+* type in the terminal, npm install
+* type in the terminal, npm run dev
 
 autor: raulcv
