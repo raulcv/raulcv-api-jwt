@@ -3,7 +3,7 @@ const colors = require('colors');
 const serverConfig = require("./serverconfig")
 // console.log(serverConfig)
 const MongoDBConectionString = serverConfig.db.host + serverConfig.db.port + serverConfig.db.name;
-console.log(MongoDBConectionString)
+//console.log(MongoDBConectionString)
 
 const conexion =  () => {
      mongoose.connect(MongoDBConectionString, { useNewUrlParser: true })
