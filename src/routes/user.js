@@ -1,39 +1,73 @@
-const { Router, request } = require("express");
-const router = Router();
-const User = require("../models/user");
-const modelResponse = require("../utils/modelresponse");
+const express = require('express')
+const router = express.Router()
+const  User  = require('../controllers')
 
-const getAllUser = async function GetAllUser(req, res) {
-    try {
-        const users = await User.find();
-        // console.log(users);
-        if (!users.length) {
-            modelResponse.message = 'No existen usuarios registrados'
-        }
-        modelResponse.data = users;
-        res.status(201).json(modelResponse);
-    } catch (err) {
-        console.log(err);
-    }
-};
-const getOneUser = async function GetOneUser(req, res) {
-    try {
-        let id = req.query._id;
-        const user = await User.findById(id);
-        console.log(user);
-        if (!user) {
-            modelResponse.message = 'No existe el usuario'
-        }
-        modelResponse.data = user || {};
-        res.status(201).json(modelResponse);
-    } catch (err) {
-        console.log(err);
-    }
-};
+console.log('****************************************************************')
+console.log(User)
 
-const UserRoute = {
-    GetAllUser: getAllUser,
-    GetOneUser: getOneUser
-}
+router.get('/api/user/all', User.GetAllUser);
+router.get('/api/user/one', User.GetOneUser);
 
-module.exports = UserRoute;
+module.exports = router
+
+
+
+
+
+// exports.signup = (req, res) => {
+//     const user = new User({ username: req.body.username, email: req.body.email, password: bcrypt.hashSync(req.body.password, 8) });
+
+//     user.save((err, user) => {
+//         if (err) {
+//             res.status(500).send({ message: err });
+//             return;
+//         }
+
+//         if (req.body.roles) {
+//             Role.find(
+//                 {
+//                     name: { $in: req.body.roles }
+//                 },
+//                 (err, roles) => {
+//                     if (err) {
+//                         res.status(500).send({ message: err });
+//                         return;
+//                     }
+
+//                     user.roles = roles.map(role => role._id);
+//                     user.save(err => {
+//                         if (err) {
+//                             res.status(500).send({ message: err });
+//                             return;
+//                         }
+
+//                         res.send({ message: "User was registered successfully!" });
+//                     });
+//                 }
+//             );
+//         } else {
+//             Role.findOne({ name: "user" }, (err, role) => {
+//                 if (err) {
+//                     res.status(500).send({ message: err });
+//                     return;
+//                 }
+
+//                 user.roles = [role._id];
+//                 user.save(err => {
+//                     if (err) {
+//                         res.status(500).send({ message: err });
+//                         return;
+//                     }
+
+//                     res.send({ message: "User was registered successfully!" });
+//                 });
+//             });
+//         }
+//     });
+// };
+// const UserRoute = {
+//     GetAllUser: getAllUser,
+//     GetOneUser: getOneUser
+// }
+
+// module.exports = UserRoute;

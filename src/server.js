@@ -3,8 +3,9 @@ const app = express();
 const morgan = require('morgan');
 const colors = require('colors');
 require('./config/database.js');
-
+const Routes = require('./routes');
 const serverConfig = require('./config/serverconfig.js');
+
 // console.log(serverConfig)
 const appport = serverConfig.app.port;
 const hostname = serverConfig.app.host;
@@ -18,7 +19,8 @@ app.use(morgan('dev')); //tiny
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(require("./routes/index"));
+// app.use(require("./routes/index"));
+app.use('/', Routes)
 // app.use("/api/user", require("./routes/user"));
 
 //starting server
