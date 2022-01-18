@@ -10,10 +10,6 @@ router.get('/api/user/one', User.GetOneUser);
 
 module.exports = router
 
-
-
-
-
 // exports.signup = (req, res) => {
 //     const user = new User({ username: req.body.username, email: req.body.email, password: bcrypt.hashSync(req.body.password, 8) });
 
