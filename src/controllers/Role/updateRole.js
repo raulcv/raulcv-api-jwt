@@ -12,7 +12,6 @@ const { roleExistsExcludingItself } = require('./helpers')
 const updateRole = async (req, res) => {
   try {
     const requestDataObject = matchedData(req)
-    console.log(requestDataObject)
     const id = await isIdValid(requestDataObject.id)
     const doesRoleExists = await roleExistsExcludingItself(id, requestDataObject.name)
     if (!doesRoleExists) {

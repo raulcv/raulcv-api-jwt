@@ -32,7 +32,6 @@ const checkQueryString = (query = {}) => {
                 console.log('**********************************************')
             }
         } catch (err) {
-            console.log(err.message)
             reject(errorObject(422, 'ERROR_WITH_FILTER'))
         }
     })
