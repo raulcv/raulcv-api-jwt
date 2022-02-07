@@ -4,11 +4,9 @@ require('../config/passport')
 const passport = require('passport')
 const requireAuth = passport.authenticate('jwt', { session: false })
 const trimRequest = require('trim-request')
-// const { getUsers, createUser, getUser, updateUser, deleteUser } = require('../controllers/user')
 const { getRoles, getRole, createRole, updateRole, deleteRole } = require('../controllers/role')
-const { validateCreateRole, validateUpdateRole, validateGetRole, validateDeleteRole } = require('../controllers/Role/validators')
-// const { validateCreateUser, validateGetUser, validateUpdateUser, validateDeleteUser } = require('../controllers/users/validators')
-
+const { validateCreateRole, validateUpdateRole, validateUpdateRoleState,
+    validateGetRole, validateDeleteRole } = require('../controllers/Role/validators')
 /*
  * Get items route
  */
@@ -37,9 +35,9 @@ router.post('/', trimRequest.all, validateCreateRole, createRole)
 router.put('/:id', trimRequest.all, validateUpdateRole, updateRole)
 
 /*
- * update a name of role
+ * update a state of role
  */
-router.patch('/:id', trimRequest.all, validateUpdateRole, updateRole)
+router.patch('/:id', trimRequest.all, validateUpdateRoleState, updateRole)
 
 /*
  * update a name of role
