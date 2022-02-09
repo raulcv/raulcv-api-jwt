@@ -1,9 +1,9 @@
-// const { checkPassword } = require('./checkPassword')
+const { checkPassword } = require('./checkPassword')
 const { decrypt } = require('./decrypt')
-// const { encrypt } = require('./encrypt')
+const { encrypt } = require('./encrypt')
 
 module.exports = {
-//   checkPassword,
+  checkPassword,
   decrypt,
-//   encrypt
+  encrypt
 }
