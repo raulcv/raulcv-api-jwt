@@ -5,8 +5,9 @@ const roleSchema = new mongoose.Schema({
     name: { type: String, required: true, lowercase: true },
     description: String,
     state: { type: String, uppercase: true, default: "A" },
-    createdat: { type: Date, lowercase: true, default: new Date() }
-})
+},
+{ timestamps: true },
+)
 roleSchema.plugin(mongoosePaginate)
 const Role = mongoose.model("role", roleSchema);
 
