@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const colors = require('colors');
 const path = require('path');
 const initMongoDB = require('./config/database.js');
+const i18n = require('i18n')
 const Routes = require('./routes');
 const serverConfig = require('./config/serverconfig.js');
 
@@ -14,6 +15,15 @@ const hostname = serverConfig.app.host;
 //settings
 app.set("port", appport);
 app.set("json spaces", 2);
+
+// i18n
+i18n.configure({
+  locales: ['en', 'es'],
+  directory: `${__dirname}/locales`,
+  defaultLocale: 'en',
+  objectNotation: true
+})
+app.use(i18n.init)
 
 //Middleware
 app.use(morgan('dev')); //tiny
