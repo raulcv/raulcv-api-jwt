@@ -1,3 +1,7 @@
-const {roleAuthorization }= require('./roleAuthorization')
+const { roleAuthorization } = require('./roleAuthorization')
+const { register } = require('./register')
 
-module.exports = { roleAuthorization }
+module.exports = {
+    roleAuthorization,
+    register
+}
