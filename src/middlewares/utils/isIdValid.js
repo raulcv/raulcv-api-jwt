@@ -9,7 +9,7 @@ const isIdValid = async (id = '') => {
   return new Promise((resolve, reject) => {
     console.log(id)
     const goodID = mongoose.Types.ObjectId.isValid(id)
-    return goodID ? resolve(id) : reject(errorObject(422, 'ID_MALFORMED'))
+    return goodID ? resolve(id) : reject(errorObject(422, "Id Don't Exist"));
   })
 }
 

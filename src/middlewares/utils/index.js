@@ -5,6 +5,7 @@ const { validateResult } = require('./validateResult')
 const { itemNotFound } = require('./itemNotFound')
 const { isIdValid } = require('./isIdValid')
 const { successObject } = require('./successObject')
+const { getIP } = require('./getIP')
 
 module.exports = {
     handleError,
@@ -13,5 +14,6 @@ module.exports = {
     validateResult,
     itemNotFound,
     isIdValid,
-    successObject
+    successObject,
+    getIP
 }
