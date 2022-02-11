@@ -6,6 +6,8 @@ const { itemNotFound } = require('./itemNotFound')
 const { isIdValid } = require('./isIdValid')
 const { successObject } = require('./successObject')
 const { getIP } = require('./getIP')
+const { getBrowserInfo } = require('./getBrowserInfo')
+const { getCountry } = require('./getCountry')
 
 module.exports = {
     handleError,
@@ -15,5 +17,7 @@ module.exports = {
     itemNotFound,
     isIdValid,
     successObject,
-    getIP
+    getIP,
+    getBrowserInfo,
+    getCountry
 }

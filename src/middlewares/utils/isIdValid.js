@@ -7,9 +7,9 @@ const { errorObject } = require('./errorObject')
  */
 const isIdValid = async (id = '') => {
   return new Promise((resolve, reject) => {
-    console.log(id)
+    // console.log(id)
     const goodID = mongoose.Types.ObjectId.isValid(id)
-    return goodID ? resolve(id) : reject(errorObject(422, "Id Don't Exist"));
+    return goodID ? resolve(id) : reject(errorObject(422, "Id Doesn't Exist"));
   })
 }
 
