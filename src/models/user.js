@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema({
   },
   password: { type: String, required: true, selected: false },
   verification: { type: String },
-  verified: { type: String, required: false },
+  verified: { type: Boolean, default: false },
   phone: { type: String },
   city: { type: String },
   country: { type: String },
