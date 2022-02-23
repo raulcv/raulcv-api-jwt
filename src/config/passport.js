@@ -37,8 +37,16 @@ const jwtOptions = {
  */
 const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
   User.findById(payload.data._id, (err, user) => {
+    // console.log('************** initial passport.js - Payload ********************************')
+    // console.log(payload)
 
-console.log('hereeeeeee')
+    user.roleId = payload.data.roleId;
+    const dateObject = new Date(payload.exp)
+    const dateObjectIAT = new Date(payload.iat)
+    let dataPayload = { id: payload.data._id, expiration: dateObject.toLocaleString(), iat: dateObjectIAT.toLocaleDateString() }
+    // console.log(dataPayload)
+    // console.log('************** initial passport.js - USER RETUrn ********************************')
+    // console.log(user)
     if (err) {
       return done(err, false)
     } return !user ? done(null, false) : done(null, user)
