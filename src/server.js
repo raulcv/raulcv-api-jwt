@@ -45,3 +45,5 @@ app.listen(app.get("port"), () => {
 
 //Initialization MongoDB
 initMongoDB();
+
+module.exports = app;
