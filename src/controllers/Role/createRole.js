@@ -11,7 +11,10 @@ const { roleExists } = require('./helpers')
  */
 const createRole = async (req, res) => {
   try {
-    const requestDataObject = matchedData(req, {includeOptionals: false})
+    const requestDataObject = matchedData(req, { includeOptionals: false })
+    requestDataObject.description = req.body.description || requestDataObject.name
+    let countRole = await Role.countDocuments({});
+    requestDataObject.sequence = countRole + 1;
     const doesRoleExists = await roleExists(requestDataObject.name)
     if (!doesRoleExists) {
       const roleCreated = await createItem(requestDataObject, Role)
